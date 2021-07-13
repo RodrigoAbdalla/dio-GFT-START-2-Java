@@ -1,9 +1,5 @@
 package one.digitalinnovation.personapi.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import one.digitalinnovation.personapi.enums.PhoneType;
 
 import javax.persistence.Column;
@@ -15,11 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class Phone {
+
+    public Phone(){
+
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +28,23 @@ public class Phone {
     @Column(nullable = false, unique = true)
     private String number;
 
+    public PhoneType getType() {
+        return type;
+    }
+
+    public void setType(PhoneType type) {
+        this.type = type;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
 
-    
+
+
 }
