@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -41,9 +39,8 @@ public class PersonController {
 
     @PostMapping
 	public ResponseEntity<PersonDTO> insert(@RequestBody PersonDTO personDTO){
-		PersonDTO dto = service.insert(personDTO); 
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
-		return ResponseEntity.created(uri).body(dto);
+		service.insert(personDTO); 
+		return ResponseEntity.noContent().build();
 	}
 
     @DeleteMapping("{id}")

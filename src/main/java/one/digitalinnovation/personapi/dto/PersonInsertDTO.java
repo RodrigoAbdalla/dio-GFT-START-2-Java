@@ -4,7 +4,7 @@ import one.digitalinnovation.personapi.entities.Person;
 
 import java.time.LocalDate;
 
-public class PersonDTO {
+public class PersonInsertDTO {
 
     private String firstName;
 
@@ -14,11 +14,11 @@ public class PersonDTO {
 
     private LocalDate birthDate;
 
-    public PersonDTO(){
+    public PersonInsertDTO(){
 
     }
 
-    public PersonDTO(Person person){
+    public PersonInsertDTO(Person person){
         this.firstName = person.getFirstName();
         this.lastName = person.getLastName();
         this.cpf = person.getCpf();
