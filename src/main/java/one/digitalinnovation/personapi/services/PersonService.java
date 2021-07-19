@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import one.digitalinnovation.personapi.dto.PersonDTO;
+import one.digitalinnovation.personapi.dto.PersonInsertDTO;
 import one.digitalinnovation.personapi.entities.Person;
 import one.digitalinnovation.personapi.repositories.PersonRepository;
 
@@ -42,7 +43,7 @@ public class PersonService {
         return new PersonDTO(person);
     }
 
-    public PersonDTO insert(PersonDTO personDTO) {
+    public PersonDTO insert(PersonInsertDTO personDTO) {
         if( 
             personDTO.getCpf()                  == ""    ||                 // Logica para o programa nao aceitar nomes, descrições e nem lugares vazios / nulos
             personDTO.getFirstName()            == ""    || 
@@ -71,7 +72,7 @@ public class PersonService {
         }
     }
 
-    public PersonDTO update(Long id, PersonDTO personDTO) {
+    public PersonDTO update(Long id, PersonInsertDTO personDTO) {
         try {
 
             Person person = repo.getOne(id);
@@ -79,6 +80,7 @@ public class PersonService {
             person.setCpf(personDTO.getCpf());
             person.setFirstName(personDTO.getFirstName());
             person.setLastName(personDTO.getLastName());
+            person.setPhones(personDTO.getPhones());
 
             person = repo.save(person);
             return new PersonDTO(person);

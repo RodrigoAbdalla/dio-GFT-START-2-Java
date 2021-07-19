@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+import one.digitalinnovation.personapi.dto.PersonInsertDTO;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +24,12 @@ public class Person {
 
     }
 
-    public Person(PersonDTO personDTO){
+    public Person(PersonInsertDTO personDTO){
         this.birthDate = personDTO.getBirthDate();
         this.cpf       = personDTO.getCpf();
         this.firstName = personDTO.getFirstName();
         this.lastName  = personDTO.getLastName();
+        this.phones = personDTO.getPhones();
     }
 
 

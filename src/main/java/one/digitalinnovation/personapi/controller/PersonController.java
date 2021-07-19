@@ -1,6 +1,7 @@
 package one.digitalinnovation.personapi.controller;
 
 import one.digitalinnovation.personapi.dto.PersonDTO;
+import one.digitalinnovation.personapi.dto.PersonInsertDTO;
 import one.digitalinnovation.personapi.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +39,7 @@ public class PersonController {
     // ------- 
 
     @PostMapping
-	public ResponseEntity<PersonDTO> insert(@RequestBody PersonDTO personDTO){
+	public ResponseEntity<PersonDTO> insert(@RequestBody PersonInsertDTO personDTO){
 		service.insert(personDTO); 
 		return ResponseEntity.noContent().build();
 	}
