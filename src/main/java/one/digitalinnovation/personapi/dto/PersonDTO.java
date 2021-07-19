@@ -1,8 +1,11 @@
 package one.digitalinnovation.personapi.dto;
 
 import one.digitalinnovation.personapi.entities.Person;
+import one.digitalinnovation.personapi.entities.Phone;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonDTO {
 
@@ -27,6 +30,8 @@ public class PersonDTO {
         this.lastName = person.getLastName();
         this.cpf = person.getCpf();
         this.birthDate = person.getBirthDate();
+        this.phones = person.getPhones();
+        this.id = person.getId();
     }
 
     
@@ -70,6 +75,14 @@ public class PersonDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Phone> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(List<Phone> phones) {
+        this.phones = phones;
     }
 
     
